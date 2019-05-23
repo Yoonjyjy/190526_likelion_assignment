@@ -1,0 +1,16 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    {% if user.is_active %}
+    <p>{{ user.username }}님 반갑습니다.</p>
+    <p><a href="{% url 'logout' %}" class="btn btn-outline-primary">logout</a></p>
+    {% endif %}
+
+    {% for post in posts.all %}
+        <div>
+            <h2><a href = "{% url 'detail' post.id %}">{{post.title}}</a></h2>
+            <p>{{post.created_date}}</p>
+        </div>
+    {% endfor %}
+{% endblock  %}

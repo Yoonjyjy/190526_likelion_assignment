@@ -1,0 +1,12 @@
+{% extends "blog/base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+    {% if user.is_active %}
+    <p>{{ user.username }}님 반갑습니다.</p>
+    <p><a href="{% url 'logout' %}" class="btn btn-outline-primary">logout</a></p>
+    {% else %}
+    <p>메인 페이지입니다.</p>
+    <p>로그인하여 게시글을 확인하세요.</p> 
+    {% endif %}
+{% endblock  %}
